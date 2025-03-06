@@ -1,0 +1,37 @@
+{% extends 'index/base.html' %}
+{% block title %}
+    签到
+{% endblock %}
+{% block sign_active %}
+    active
+{% endblock %}
+{% block index %}
+    <div class="m-3">
+        <div class="alert alert-warning" role="alert">
+            <p>签到时间：</p>
+            <p>上午：7：:00~12：:00</p>
+            <p>中午：12：:00~16：:00</p>
+            <p>晚上：16：:00~22：:00</p>
+        </div>
+    </div>
+    <form action="{% url 'sign_url' %}" class="m-3">
+        {% csrf_token %}
+        <div class="col-md-3 mt-5">
+            <label for="inputCity" class="form-label">签到码</label>
+            <input class="form-control" name="sign_code" placeholder="请输入签到码">
+
+        </div>
+
+
+        <div class="col-md-3 mt-3">
+            <label for="inputZip" class="form-label">签到</label>
+            <button id="inputZip" type="submit" class="form-control btn btn-primary">
+
+                签到
+            </button>
+        </div>
+    </form>
+    <script>
+        {{ alert }}("{{ msg }}");
+    </script>
+{% endblock %}
